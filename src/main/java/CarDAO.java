@@ -1,9 +1,14 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class CarDAO {
 
@@ -24,6 +29,21 @@ public class CarDAO {
         return cars;
     }
 
+    public void getWithPagination() throws SQLException {
+        Statement statement = connection.createStatement();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("У нас 99 машин. Введите количество машин на экране");
+        int listSize = scanner.nextInt();
+        System.out.println("Какую страницу Вы хотите посмотреть?");
+        int site = scanner.nextInt();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM car LIMIT " + listSize + " OFFSET " + site*listSize);
+        while (resultSet.next()){
+            System.out.println(resultSet.getInt(1) + " " + resultSet.getString("name") + resultSet.getString("country"));
+        }
+    }
+
+
     public void insertNewCar(Car car) throws SQLException {
         Statement statement = connection.createStatement();
         int id = car.getId();
@@ -31,7 +51,6 @@ public class CarDAO {
         String country = car.getCountry();
         String str = "INSERT INTO car VALUES (" + id + ", '" + name + "', '" + country + "');";
         statement.execute(str);
-        System.out.println(str);
     }
 
     public void updateCarById(int id, Car car) throws SQLException {
@@ -39,7 +58,6 @@ public class CarDAO {
         String name = car.getName();
         String country = car.getCountry();
         String str = "UPDATE car SET name = '" + name + "', country = '" + country + "' WHERE id = " + id;
-        System.out.println(str);
         for (Car cara : getAllCars()) {
             if (cara.getId() == id){
                 statement.execute(str);
@@ -50,8 +68,31 @@ public class CarDAO {
         Statement statement = connection.createStatement();
         String str = "DELETE FROM car WHERE id = " + id;
         statement.execute(str);
-        System.out.println(str);
 
+    }
+
+    public void fillTable() {
+        File file = new File("./cars.txt");
+        List<Car> cars = new ArrayList<>();
+        AtomicInteger id = new AtomicInteger();
+        try (FileReader fileReader = new FileReader(file);
+             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+            bufferedReader.lines()
+                    .map(line -> {
+                        String[] carData = line.split(", ");
+                        Car car = new Car(id.incrementAndGet(), carData[0], carData[1]);
+                        try {
+                            insertNewCar(car);
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        }
+                        return car;
+                    })
+                    .forEach(cars::add);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public CarDAO(Connection connection) {

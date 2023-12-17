@@ -1,0 +1,99 @@
+Toyota, Japan
+Honda, Japan
+Ford, United States
+Chevrolet, United States
+Mercedes-Benz, Germany
+BMW, Germany
+Audi, Germany
+Volkswagen, Germany
+Nissan, Japan
+Porsche, Germany
+Lexus, Japan
+Subaru, Japan
+Kia, South Korea
+Hyundai, South Korea
+Mazda, Japan
+Dodge, United States
+Jeep, United States
+Tesla, United States
+Ferrari, Italy
+Lamborghini, Italy
+Bentley, United Kingdom
+Aston Martin, United Kingdom
+Land Rover, United Kingdom
+Jaguar, United Kingdom
+Maserati, Italy
+Alfa Romeo, Italy
+Rolls-Royce, United Kingdom
+McLaren, United Kingdom
+Bugatti, France
+Renault, France
+Peugeot, France
+Citroën, France
+Fiat, Italy
+Lancia, Italy
+Seat, Spain
+Skoda, Czech Republic
+Volvo, Sweden
+Saab, Sweden
+Opel, Germany
+Vauxhall, United Kingdom
+Infiniti, Japan
+Acura, Japan
+Mitsubishi, Japan
+Suzuki, Japan
+Lincoln, United States
+Cadillac, United States
+Buick, United States
+GMC, United States
+Chrysler, United States
+Pontiac, United States
+Saturn, United States
+Oldsmobile, United States
+Hummer, United States
+Mercury, United States
+Scion, Japan
+Daihatsu, Japan
+Isuzu, Japan
+Daewoo, South Korea
+Genesis, South Korea
+SsangYong, South Korea
+Mini, United Kingdom
+MG, United Kingdom
+Rover, United Kingdom
+Lotus, United Kingdom
+TVR, United Kingdom
+Pagani, Italy
+Koenigsegg, Sweden
+Maruti Suzuki, India
+Tata Motors, India
+Mahindra, India
+Holden, Australia
+HSV (Holden Special Vehicles), Australia
+Proton, Malaysia
+Perodua, Malaysia
+Geely, China
+Great Wall, China
+Chery, China
+BYD, China
+Lada, Russia
+GAZ (Gorkovsky Avtomobilny Zavod), Russia
+UAZ (Ulyanovsky Avtomobilny Zavod), Russia
+ZAZ (Zaporizhia Automobile Building Plant), Ukraine
+Dacia, Romania
+Škoda, Czech Republic
+Tatra, Czech Republic
+Fisker, United States
+Lucid, United States
+Rivian, United States
+Bollinger, United States
+Spyker, Netherlands
+Donkervoort, Netherlands
+Rimac, Croatia
+Zenvo, Denmark
+KTM, Austria
+Apollo, Germany
+Wiesmann, Germany
+Panoz, United States
+Saleen, United States
+Vector, United States

@@ -9,9 +9,14 @@ public class MainWithDAO {
         Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "Griz4623120@");
             CarDAO carDAO = new CarDAO(connection);
         List<Car> cars = carDAO.getAllCars();
-        Car car = new Car(10, "qwerty", "Germany");
-        carDAO.insertNewCar(car);
-        carDAO.updateCarById(10, new Car(10, "lexus", "Japan"));
-        carDAO.deleteCarById(1);
+//        carDAO.fillTable();
+        carDAO.getWithPagination();
+
+
+
+//        Car car = new Car(10, "qwerty", "Germany");
+//        carDAO.insertNewCar(car);
+//        carDAO.updateCarById(10, new Car(10, "lexus", "Japan"));
+//        carDAO.deleteCarById(1);
         }
 }
