@@ -13,6 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class CarDAO {
 
     private Connection connection;
+    private final DataReceiver dataReceiver = new DataReceiver();
 
     public List<Car> getAllCars() throws SQLException {
         List<Car> cars = new ArrayList<>();
@@ -31,15 +32,9 @@ public class CarDAO {
 
     public void getWithPagination() throws SQLException {
         Statement statement = connection.createStatement();
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("У нас 99 машин. Введите количество машин на экране");
-        int listSize = scanner.nextInt();
-        System.out.println("Какую страницу Вы хотите посмотреть?");
-        int site = scanner.nextInt();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM car LIMIT " + listSize + " OFFSET " + site*listSize);
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM car LIMIT " + dataReceiver.getListSize() + " OFFSET " + dataReceiver.getSite()*dataReceiver.getListSize());
         while (resultSet.next()){
-            System.out.println(resultSet.getInt(1) + " " + resultSet.getString("name") + resultSet.getString("country"));
+            System.out.println(resultSet.getInt(1) + " " + resultSet.getString("name") + " " + resultSet.getString("country"));
         }
     }
 
